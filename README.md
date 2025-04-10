@@ -3,4 +3,5 @@ this mode is in the case there is a critical function that needs to be processed
 from the UART peripheral. In this case we have a function performCriticalTasks() (which does not perform any critical tasks) that needs to be processed. In order
 to process these tasks we put the UART peripheral in interrupt mode so that it is no longer blocking theses tasks.
 
-The interrupt is invoked upon user input (UartReady = SET) and UART peripheral ISR is ran.
+The interrupt is invoked upon user input (UartReady = SET) and UART peripheral ISR is ran. In interrupt mode the application does not wait for data transmission,
+it waits to put data into the DR register or to load data into the application memory via the ISR.
